@@ -4,7 +4,8 @@ from pathlib import Path
 import nltk
 import torch.utils.data as data
 
-from coco_dataset import CoCoDataset
+# from coco_dataset import CoCoDataset
+from Image_Captioning_aku.coco_dataset import CoCoDataset
 
 nltk.download("punkt")
 
