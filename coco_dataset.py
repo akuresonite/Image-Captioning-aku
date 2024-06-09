@@ -9,7 +9,7 @@ from pycocotools.coco import COCO
 from torch.utils import data as data
 from tqdm import tqdm
 
-from vocabulary import Vocabulary
+from Image_Captioning_aku.vocabulary import Vocabulary
 
 
 class CoCoDataset(data.Dataset):
