@@ -48,9 +48,11 @@ class Vocabulary(object):
 
         # create a new vocab file
         else:
+            print("Making vocab.pkl...")
             self.build_vocab()
             with open(self.vocab_file, "wb") as f:
                 pickle.dump(self, f)
+            print("saved to", self.vocab_file)
 
     def build_vocab(self):
         """Populate the dictionaries for converting tokens to integers (and vice-versa)."""
