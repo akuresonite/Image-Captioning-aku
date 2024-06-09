@@ -11,6 +11,7 @@ nltk.download("punkt")
 
 def get_loader(
     transform,
+    cocoapi_loc,
     mode="train",
     batch_size=1,
     vocab_threshold=None,
@@ -19,8 +20,7 @@ def get_loader(
     end_word="<end>",
     unk_word="<unk>",
     vocab_from_file=True,
-    num_workers=0,
-    cocoapi_loc
+    num_workers=0
 ):
     """Returns the data loader.
     Args:
