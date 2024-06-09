@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import nltk
 import torch.utils.data as data
@@ -19,7 +20,7 @@ def get_loader(
     unk_word="<unk>",
     vocab_from_file=True,
     num_workers=0,
-    cocoapi_loc="/opt",
+    cocoapi_loc
 ):
     """Returns the data loader.
     Args:
@@ -38,7 +39,7 @@ def get_loader(
     """
 
     assert mode in ["train", "test"], "mode must be one of 'train' or 'test'."
-
+    
     if not vocab_from_file:
         assert (
             mode == "train"
@@ -50,7 +51,7 @@ def get_loader(
             assert os.path.exists(
                 vocab_file
             ), "vocab_file does not exist. Change vocab_from_file to False to create vocab_file."
-        img_folder = os.path.join(cocoapi_loc, "images/train2017/")
+        img_folder = os.path.join(cocoapi_loc, "train2017")
         annotations_file = os.path.join(
             cocoapi_loc, "annotations/captions_train2017.json"
         )
@@ -61,9 +62,9 @@ def get_loader(
             vocab_file
         ), "Must first generate vocab.pkl from training data."
         assert vocab_from_file, "Change vocab_from_file to True."
-        img_folder = os.path.join(cocoapi_loc, "images/test2017/")
+        img_folder = os.path.join(cocoapi_loc, test2017)
         annotations_file = os.path.join(
-            cocoapi_loc, "annotations/image_info_test2017.json"
+            cocoapi_loc, "annotations/captions_test2017.json"
         )
     else:
         raise ValueError(f"Invalid mode: {mode}")
